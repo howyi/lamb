@@ -1,0 +1,16 @@
+name: LambTest
+version: 0.0.1
+
+path:
+  collection:  sample/collection
+  environment: sample/environment
+  request:     sample/request
+  scenario:    sample/scenario
+
+environment:
+  host: https://example.com/6
+
+default:
+  request:
+    header:
+    parameter:
