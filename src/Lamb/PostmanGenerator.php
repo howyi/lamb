@@ -9,7 +9,7 @@ use Lamb\Structure\EnvironmentStructure;
 use Lamb\Structure\ApiStructure;
 use Lamb\Util\Checker;
 use Lamb\Util\Config;
-use Lamb\Util\Delimiter;
+use Lamb\Util\Bracket;
 use Lamb\Util\Key;
 use Lamb\Util\UUID;
 
@@ -47,7 +47,7 @@ class PostmanGenerator
             $apiJson = [];
             self::setApiList($dir, $apiJson, $value);
             $dirJson = [
-                'name'        => Delimiter::POSTMAN($dir),
+                'name'        => Bracket::POSTMAN($dir),
                 'description' => '',
                 'item'        => $apiJson,
             ];
@@ -140,16 +140,16 @@ class PostmanGenerator
         $paths = array_values($paths);
         $paths = array_map(
             function ($path) {
-                return \Lamb\Util\Delimiter::POSTMAN($path);
+                return \Lamb\Util\Bracket::POSTMAN($path);
             },
             $paths
         );
         if (count($paths) !== 1) {
             $name = mb_strstr(implode('/', $paths), '/');
-            $name = $request->getDescription() . ' ' . Delimiter::POSTMAN($name);
+            $name = $request->getDescription() . ' ' . Bracket::POSTMAN($name);
         } else {
             $name = $path;
-            $name = Delimiter::POSTMAN($name) . ' ' . $request->getDescription();
+            $name = Bracket::POSTMAN($name) . ' ' . $request->getDescription();
         }
         $json = [
             'name' => $name,
@@ -168,8 +168,8 @@ class PostmanGenerator
             foreach ($request->getHeader() as $key => $value) {
                 $header[] = [
                     'description' => (isset($value['description']) ? $value['description'] : ''),
-                    'key'         => Delimiter::POSTMAN($key),
-                    'value'       => Delimiter::POSTMAN($value['value']),
+                    'key'         => Bracket::POSTMAN($key),
+                    'value'       => Bracket::POSTMAN($value['value']),
                 ];
             }
             $json['request']['header'] = $header;
@@ -192,8 +192,8 @@ class PostmanGenerator
                     $parameterValue = $value['test'];
                 }
                 $parameter[] = [
-                    'key'         => Delimiter::POSTMAN($key),
-                    'value'       => Delimiter::POSTMAN($parameterValue),
+                    'key'         => Bracket::POSTMAN($key),
+                    'value'       => Bracket::POSTMAN($parameterValue),
                     'equals'      => true,
                     'description' => (isset($value['description']) ? $value['description'] : ''),
                 ];
@@ -205,7 +205,7 @@ class PostmanGenerator
             $raw = $request->getTestBody();
             $json['request']['body'] = [
                 'mode' => 'raw',
-                'raw'  => Delimiter::POSTMAN($raw),
+                'raw'  => Bracket::POSTMAN($raw),
             ];
         }
 

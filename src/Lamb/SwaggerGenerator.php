@@ -9,7 +9,7 @@ use Lamb\Structure\EnvironmentStructure;
 use Lamb\Structure\ApiStructure;
 use Lamb\Util\Checker;
 use Lamb\Util\Config;
-use Lamb\Util\Delimiter;
+use Lamb\Util\Bracket;
 use Lamb\Util\Key;
 use Symfony\Component\Yaml\Yaml;
 
@@ -83,9 +83,9 @@ class SwaggerGenerator
 
             if (gettype($value) === 'object' and get_class($value) === ApiStructure::class) {
                 if (isset($paths[$nextDir])) {
-                    $paths[Delimiter::SWAGGER($nextDir)] += self::getApi($nextDir, $dir, $value, $tag);
+                    $paths[Bracket::SWAGGER($nextDir)] += self::getApi($nextDir, $dir, $value, $tag);
                 } else {
-                    $paths[Delimiter::SWAGGER($nextDir)] = self::getApi($nextDir, $dir, $value, $tag);
+                    $paths[Bracket::SWAGGER($nextDir)] = self::getApi($nextDir, $dir, $value, $tag);
                 }
             }
 
@@ -105,7 +105,7 @@ class SwaggerGenerator
         $paths = array_values($paths);
         $paths = array_map(
             function ($path) {
-                return \Lamb\Util\Delimiter::POSTMAN($path);
+                return \Lamb\Util\Bracket::POSTMAN($path);
             },
             $paths
         );
@@ -126,7 +126,7 @@ class SwaggerGenerator
 
         if (count($paths) !== 1) {
             $name = mb_strstr(implode('/', $paths), '/');
-            $name = $request->getDescription() . ' ' . Delimiter::POSTMAN($name);
+            $name = $request->getDescription() . ' ' . Bracket::POSTMAN($name);
         } else {
             $name = $path;
         }

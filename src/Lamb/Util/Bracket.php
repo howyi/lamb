@@ -2,7 +2,7 @@
 
 namespace Lamb\Util;
 
-class Delimiter
+class Bracket
 {
     const LAMB    = ['((', '))'];
     const POSTMAN = ['{{', '}}'];
