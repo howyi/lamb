@@ -1,0 +1,14 @@
+language: php
+php:
+  - 7.1
+before_script:
+  - composer install --dev
+script:
+  # - vendor/bin/phpunit --coverage-clover=build/log/clover.xml
+  - make stan
+  - make cs
+after_success:
+  # - travis_retry php vendor/bin/coveralls -v
+notifications:
+  slack:
+    secure: covHalNRxvUsnBaotUGhUc+T9PwMGDeGWeSvBu5vx3auv4ngrulXSBEpxyYsLdnVRjfaCu4B1SpUzJS1l8O2e3soDCSUQG4AO7jBEKNGzy+RCGlNdIcqvTrkffztjxGUXbyPor+n/TOLfqiFVmttVZZgSR7MfDtCHVeq3omw6L8EigjDa4nQsV09mUJnnHVhm4Bn8EjbokVK+9IHJJAgO1/V9s26bnHEm2199yOgjiED0Lb+1SHQS713yoFW58Q/SQKrC0+G0Lr8gVTWvmu5MA7lX25sMn4ODzZRF5UXLR+wDuaKa2VorySTyc3DA8UjsLIwVwI/B4XyBPVER7+uhqFnh8jQlFi6EUpgDuZ4oWCYQNXwENOijQqdFcBZLMcMA3A8EsKPVGuzRTpRrFgAhD8WrdXV4lBG0SmYUeSTAnn3n+9eNHvkjXxkYUEf/B6+wzKkjlcOBWjUfe5gTHv3uohytGKICNdqJO28ODGuBgGt5lM1gsPBv+KllJt8kykHzP7eqo/R+1/hzDkGlE2EpKLV3VVGnYTvK3XrOjYh/t3THb6O+Hwm9pGa15bT4GLwSq/3Dn6BNnoHhQuDeiQe2dntxuZs1Qw1Szs0mzhTEA2YCn4AAtduB4K1RjLWJHpOqbNtX0uumrbbmEnfDU3N2eV29U2cv+Wq/r8EOa181y8=
