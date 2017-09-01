@@ -23,9 +23,9 @@ class CheckCommand extends Command
         $collection = CollectionStructureFactory::fromDir();
         $environment = EnvironmentStructureFactory::fromDir();
 
-        $a = PostmanGenerator::collection($collection, 'build');
-        $a = PostmanGenerator::environment($environment, 'build');
+        PostmanGenerator::collection($collection, 'build');
+        PostmanGenerator::environment($environment, 'build');
 
-        $a = SwaggerGenerator::document($collection, $environment, 'sample_env', 'build');
+        SwaggerGenerator::document($collection, $environment, 'sample_env', 'build');
     }
 }
