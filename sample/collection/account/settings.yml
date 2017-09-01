@@ -1,0 +1,31 @@
+POST:
+  description: Updates user's settings.
+
+  request:
+    body:
+      $schema: http://json-schema.org/draft-04/schema#
+      type: object
+      properties:
+        language:
+          title: user's language
+          type: string
+        age:
+          title: age
+          type: int
+      additionalProperties: true
+      required: []
+
+
+  response:
+    body:
+      $schema: http://json-schema.org/draft-04/schema#
+      type: object
+      properties:
+        language:
+          title: user's language
+          type: string
+        age:
+          title: age
+          type: int
+      additionalProperties: true
+      required: [language, age]

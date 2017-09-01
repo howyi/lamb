@@ -1,5 +1,5 @@
-name: LambTest
-version: 0.0.1
+name: LambTestAPI
+version: 1.0.0
 
 path:
   collection:  sample/collection
@@ -8,9 +8,15 @@ path:
   scenario:    sample/scenario
 
 environment:
-  host: https://example.com/6
+  host: https://example.com/v2
 
 default:
   request:
     header:
+      sessionKey:
+        description: ''
+        value: ((sessionKey))
     parameter:
+      # sessionKey:
+      #   required: true
+      #   value: ((sessionKey))
