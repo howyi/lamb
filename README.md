@@ -5,6 +5,12 @@ JSON Schema(&YAML) extension & API document generator
 
 <!-- ## wiki: https://github.com/howyi/lamb/wiki -->
 
+## Usable API
+||| 
+|-------------|:-------------:|
+|method|GET, POST, PUT, DELETE|
+|body|JSON|
+
 ## Quickstart
 ### Install
 `composer require howyi/lamb`
