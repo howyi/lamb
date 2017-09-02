@@ -1,6 +1,6 @@
 <?php
 
-namespace Lamb\Generator;
+namespace Lamb\Converter;
 
 use Howyi\Evi;
 use Lamb\Factory\ApiStructureFactory;

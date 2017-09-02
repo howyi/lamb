@@ -1,6 +1,6 @@
 <?php
 
-namespace Lamb\Generator;
+namespace Lamb\Converter;
 
 use Lamb\Structure\CollectionStructure;
 use Lamb\Structure\ApiStructure;

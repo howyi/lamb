@@ -142,10 +142,10 @@ sessionKey: hogehogehogehoge
 ## Generate POSTMAN Collection
 ```php
 $collection = \Lamb\CollectionStructureFactory::fromDir();
-dump(\Lamb\Generator\Postman::collection($collection));
+dump(\Lamb\Converter\Postman::collection($collection));
 
 $environment = \Lamb\EnvironmentStructureFactory::fromDir();
-dump(\Lamb\Generator\Postman::environment($environment));
+dump(\Lamb\Converter\Postman::environment($environment));
 ```
 
 ## Generate Swagger document
@@ -153,5 +153,5 @@ dump(\Lamb\Generator\Postman::environment($environment));
 $collection = \Lamb\CollectionStructureFactory::fromDir();
 $environment = \Lamb\EnvironmentStructureFactory::fromDir();
 
-dump(\Lamb\Generator\Swagger::document($collection, $environment, 'your_env'));
+dump(\Lamb\Converter\Swagger::document($collection, $environment, 'your_env'));
 ```
