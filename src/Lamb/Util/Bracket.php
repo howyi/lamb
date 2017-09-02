@@ -8,6 +8,7 @@ class Bracket
     const POSTMAN = ['{{', '}}'];
     const JMETER  = ['${', '}'];
     const SWAGGER = ['{', '}'];
+    const TSUNG = ['%%_', '%%'];
 
     /**
      * @param string $text
