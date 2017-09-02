@@ -1,6 +1,6 @@
 <?php
 
-namespace Lamb;
+namespace Lamb\Generator;
 
 use Howyi\Evi;
 use Lamb\Factory\ApiStructureFactory;
@@ -13,7 +13,7 @@ use Lamb\Util\Bracket;
 use Lamb\Util\Key;
 use Lamb\Util\UUID;
 
-class PostmanGenerator
+class Postman
 {
     /**
      * @param string      $collection

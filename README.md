@@ -6,7 +6,7 @@ JSON Schema(&YAML) extension & API document generator
 <!-- ## wiki: https://github.com/howyi/lamb/wiki -->
 
 ## Usable API
-||| 
+|||
 |-------------|:-------------:|
 |method|GET, POST, PUT, DELETE|
 |body|JSON|
@@ -142,10 +142,10 @@ sessionKey: hogehogehogehoge
 ## Generate POSTMAN Collection
 ```php
 $collection = \Lamb\CollectionStructureFactory::fromDir();
-dump(\Lamb\PostmanGenerator::collection($collection));
+dump(\Lamb\Generator\Postman::collection($collection));
 
 $environment = \Lamb\EnvironmentStructureFactory::fromDir();
-dump(\Lamb\PostmanGenerator::environment($environment));
+dump(\Lamb\Generator\Postman::environment($environment));
 ```
 
 ## Generate Swagger document
@@ -153,5 +153,5 @@ dump(\Lamb\PostmanGenerator::environment($environment));
 $collection = \Lamb\CollectionStructureFactory::fromDir();
 $environment = \Lamb\EnvironmentStructureFactory::fromDir();
 
-dump(\Lamb\SwaggerGenerator::document($collection, $environment, 'your_env'));
+dump(\Lamb\Generator\Swagger::document($collection, $environment, 'your_env'));
 ```
