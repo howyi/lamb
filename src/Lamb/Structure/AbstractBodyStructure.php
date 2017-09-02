@@ -42,6 +42,11 @@ abstract class AbstractBodyStructure
             return;
         }
 
+        if (isset($array['test'])) {
+            $json = $array['test'];
+            return;
+        }
+
         if (isset($array['default'])) {
             $json = $array['default'];
             return;
