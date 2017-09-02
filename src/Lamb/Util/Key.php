@@ -16,6 +16,13 @@ class Key
       'DELETE',
     ];
 
+    const UNSET_SWAGGER = [
+        self::JSON_SCHEMA,
+        'options',
+        'additionalProperties',
+        'test',
+    ];
+
     const HEADER    = 'header';
     const PARAMETER = 'parameter';
     const BODY      = 'body';

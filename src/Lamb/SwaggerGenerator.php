@@ -166,7 +166,7 @@ class SwaggerGenerator
         if (!empty($request->getBody())) {
             $body = $request->getBody();
 
-            self::unsetRecursive($body, Key::JSON_SCHEMA);
+            self::unsetRecursive($body, Key::UNSET_SWAGGER);
 
             $parameters[] = [
                 'in'          => 'body',
@@ -186,7 +186,7 @@ class SwaggerGenerator
         if (!empty($response->getBody())) {
             $body = $response->getBody();
 
-            self::unsetRecursive($body, Key::JSON_SCHEMA);
+            self::unsetRecursive($body, Key::UNSET_SWAGGER);
 
             $responses[200]['schema'] = $body;
         }
@@ -207,13 +207,13 @@ class SwaggerGenerator
         return [strtolower($method) => $doc];
     }
 
-    private static function unsetRecursive(array &$array, string $targetKey)
+    private static function unsetRecursive(array &$array, array $targetKeys)
     {
         foreach ($array as $key => &$value) {
-            if ($key === $targetKey) {
+            if (in_array($key, $targetKeys, true)) {
                 unset($array[$key]);
             } elseif (is_array($value)) {
-                self::unsetRecursive($value, $targetKey);
+                self::unsetRecursive($value, $targetKeys);
             }
         }
     }
