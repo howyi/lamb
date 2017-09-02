@@ -202,10 +202,10 @@ class Postman
         }
 
         if (!empty($request->getBody())) {
-            $raw = $request->getTestBody();
+            $raw = $request->getTestBody(Bracket::POSTMAN);
             $json['request']['body'] = [
                 'mode' => 'raw',
-                'raw'  => Bracket::POSTMAN($raw),
+                'raw'  => $raw,
             ];
         }
 

@@ -3,6 +3,7 @@
 namespace Lamb\Structure;
 
 use Lamb\Util\UUID;
+use Lamb\Util\Bracket;
 
 abstract class AbstractBodyStructure
 {
@@ -19,14 +20,14 @@ abstract class AbstractBodyStructure
     /**
      * @return string
      */
-    public function getTestBody(): string
+    public function getTestBody(array $bracket): string
     {
         $json = [];
         $replace = [];
         $this->setDefault($this->getBody(), $json, $replace);
         $raw = json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         $raw = str_replace(array_keys($replace), array_values($replace), $raw);
-        return $raw;
+        return str_replace(Bracket::LAMB, $bracket, $raw);
     }
 
     private function setDefault(array $array, array &$json, array &$replace)
