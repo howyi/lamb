@@ -11,7 +11,7 @@ POST:
           type: string
         age:
           title: age
-          type: int
+          type: integer
       additionalProperties: true
       required: []
 
@@ -26,6 +26,6 @@ POST:
           type: string
         age:
           title: age
-          type: int
+          type: integer
       additionalProperties: true
       required: [language, age]
