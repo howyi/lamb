@@ -162,3 +162,11 @@ $collection = \Lamb\CollectionStructureFactory::fromDir();
 
 dump(\Lamb\Converter\ApiBlueprint::document($collection));
 ```
+
+## Generate RAML document
+```php
+$collection = \Lamb\CollectionStructureFactory::fromDir();
+$environment = \Lamb\EnvironmentStructureFactory::fromDir();
+
+dump(\Lamb\Converter\Raml::document($collection, $environment, 'your_env'));
+```
