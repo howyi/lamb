@@ -53,6 +53,11 @@ abstract class AbstractBodyStructure
             return;
         }
 
+        if (isset($array['enum'])) {
+            $json = current($array['enum']);
+            return;
+        }
+
         if (isset($array['minimum'])) {
             $json = $array['minimum'];
             return;
@@ -80,7 +85,11 @@ abstract class AbstractBodyStructure
                 }
                 break;
             case 'string':
-                $json = 'string';
+                if (isset($array['format']) and $array['format'] === 'date-time') {
+                    $json = (new \DateTime())->format(\DateTime::ATOM);
+                } else {
+                    $json = 'string';
+                }
                 break;
             case 'integer':
                 $json = 1;
