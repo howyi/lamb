@@ -30,9 +30,19 @@ abstract class AbstractBodyStructure
         return str_replace(Bracket::LAMB, $bracket, $raw);
     }
 
-    private function setDefault(array $array, array &$json, array &$replace)
+    /**
+     * @return string
+     */
+    public function getSampleBody(): string
     {
-        if (isset($array['test'])) {
+        $json = [];
+        $this->setDefault($this->getBody(), $json);
+        return json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    }
+
+    private function setDefault(array $array, array &$json, &$replace = null)
+    {
+        if (isset($array['test']) and !is_null($replace)) {
             if ($array['type'] === 'integer' or $array['type'] === 'bool') {
                 $uuid = UUID::generate();
                 $json = "$uuid";
@@ -40,11 +50,6 @@ abstract class AbstractBodyStructure
             } else {
                 $json = $array['test'];
             }
-            return;
-        }
-
-        if (isset($array['test'])) {
-            $json = $array['test'];
             return;
         }
 

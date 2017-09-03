@@ -99,7 +99,7 @@ class ApiBlueprint extends AbstractConverter
 
         if (!empty($request->getBody())) {
             $document .= self::getLine('+ Body', 2, 2);
-            $testBody = $request->getTestBody(Bracket::APIBLUEPRINT);
+            $testBody = $request->getSampleBody();
             foreach (explode("\n", $testBody) as $line) {
                 $document .= self::getLine($line, 6);
             }
@@ -117,7 +117,7 @@ class ApiBlueprint extends AbstractConverter
 
         if (!empty($response->getBody())) {
             $document .= self::getLine('+ Body', 2, 2);
-            $testBody = $response->getTestBody(Bracket::APIBLUEPRINT);
+            $testBody = $response->getSampleBody();
             foreach (explode("\n", $testBody) as $line) {
                 $document .= self::getLine($line, 6);
             }

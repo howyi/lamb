@@ -106,7 +106,7 @@ class Raml extends AbstractConverter
             $body = $request->getBody();
             $schema = json_encode($body, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
             $apiDetail['body']['application/json']['schema'] = $schema;
-            $example = $request->getTestBody(Bracket::RAML);
+            $example = $request->getSampleBody();
             $apiDetail['body']['application/json']['example'] = $example;
         }
 
@@ -115,7 +115,7 @@ class Raml extends AbstractConverter
             $body = $response->getBody();
             $schema = json_encode($body, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
             $apiDetail['responses']['200']['body']['application/json']['schema'] = $schema;
-            $example = $response->getTestBody(Bracket::RAML);
+            $example = $response->getSampleBody();
             $apiDetail['responses']['200']['body']['application/json']['example'] = $example;
         }
 

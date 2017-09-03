@@ -147,7 +147,7 @@ class Swagger extends AbstractConverter
                 ];
             }
         }
-        //
+
         if (!empty($request->getParameter())) {
             foreach ($request->getParameter() as $key => $value) {
                 $parameters[] = [
