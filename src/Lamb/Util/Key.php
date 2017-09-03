@@ -32,4 +32,5 @@ class Key
 
     const POSTMAN_VERSION = 'https://schema.getpostman.com/json/collection/v2.0.0/collection.json';
     const SWAGGER_VERSION = '2.0';
+    const RAML_VERSION    = '1.0';
 }

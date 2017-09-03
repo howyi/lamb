@@ -8,6 +8,7 @@ use Lamb\EnvironmentStructureFactory;
 use Lamb\Converter\Postman;
 use Lamb\Converter\Swagger;
 use Lamb\Converter\ApiBlueprint;
+use Lamb\Converter\Raml;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -29,5 +30,6 @@ class CheckCommand extends Command
 
         Swagger::document($collection, $environment, 'sample_env', 'build');
         ApiBlueprint::document($collection, 'build');
+        Raml::document($collection, $environment, 'sample_env', 'build');
     }
 }

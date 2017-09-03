@@ -10,6 +10,7 @@ class Bracket
     const SWAGGER      = ['{', '}'];
     const TSUNG        = ['%%_', '%%'];
     const APIBLUEPRINT = ['{', '}'];
+    const RAML         = ['{', '}'];
 
     /**
      * @param string $text
@@ -36,5 +37,13 @@ class Bracket
     public static function APIBLUEPRINT(string $text): string
     {
         return str_replace(self::LAMB, self::APIBLUEPRINT, $text);
+    }
+    /**
+     * @param string $text
+     * @return string
+     */
+    public static function RAML(string $text): string
+    {
+        return str_replace(self::LAMB, self::RAML, $text);
     }
 }

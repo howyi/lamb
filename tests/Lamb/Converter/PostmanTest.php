@@ -12,6 +12,7 @@ class PostmanTest extends \PHPUnit\Framework\TestCase
         \Lamb\Converter\Postman::environment($environment, 'build');
         \Lamb\Converter\Swagger::document($collection, $environment, 'sample_env', 'build');
         \Lamb\Converter\ApiBlueprint::document($collection, 'build');
+        \Lamb\Converter\RAML::document($collection, $environment, 'sample_env', 'build');
         $this->assertTrue(true);
     }
 }
