@@ -58,7 +58,7 @@ POST:
           type: string
         age:
           title: age
-          type: int
+          type: integer
       additionalProperties: true
       required: []
 
@@ -73,7 +73,7 @@ POST:
           type: string
         age:
           title: age
-          type: int
+          type: integer
       additionalProperties: true
       required: [language, age]
 ```
@@ -97,7 +97,7 @@ API endpoint: https://<i></i>example.com/v2/account/update_profile
           },
           "age": {
             "title": "age",
-            "type": "int"
+            "type": "integer"
           }
         },
         "additionalProperties": true,
@@ -116,7 +116,7 @@ API endpoint: https://<i></i>example.com/v2/account/update_profile
           },
           "age": {
             "title": "age",
-            "type": "int"
+            "type": "integer"
           }
         },
         "additionalProperties": true,

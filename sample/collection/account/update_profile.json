@@ -14,7 +14,7 @@
           },
           "age": {
             "title": "age",
-            "type": "int"
+            "type": "integer"
           }
         },
         "additionalProperties": true,
@@ -33,7 +33,7 @@
           },
           "age": {
             "title": "age",
-            "type": "int"
+            "type": "integer"
           }
         },
         "additionalProperties": true,
