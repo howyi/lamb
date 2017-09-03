@@ -155,3 +155,10 @@ $environment = \Lamb\EnvironmentStructureFactory::fromDir();
 
 dump(\Lamb\Converter\Swagger::document($collection, $environment, 'your_env'));
 ```
+
+## Generate API Blueprint document
+```php
+$collection = \Lamb\CollectionStructureFactory::fromDir();
+
+dump(\Lamb\Converter\ApiBlueprint::document($collection));
+```
