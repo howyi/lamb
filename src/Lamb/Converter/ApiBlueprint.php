@@ -8,7 +8,7 @@ use Lamb\Util\Checker;
 use Lamb\Util\Bracket;
 use Lamb\Util\Key;
 
-class ApiBlueprint
+class ApiBlueprint extends AbstractConverter
 {
     /**
      * @param string      $collection
@@ -40,18 +40,10 @@ class ApiBlueprint
         $document = Bracket::APIBLUEPRINT($document);
 
         if (!is_null($path)) {
-            if (!file_exists($path)) {
-                mkdir($path, 0777, true);
-            }
             $filename = $collection->getName() . '.md';
-            file_put_contents($path . '/' . $filename, $document);
+            self::save($path, $filename, $document);
         }
         return $document;
-    }
-
-    private static function getLine(string $text = '', int $indent = 0, int $break = 1): string
-    {
-        return (str_repeat('  ', $indent)) . $text . str_repeat(PHP_EOL, $break);
     }
 
     private static function setApiList($baseDir, $focus): string

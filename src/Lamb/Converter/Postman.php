@@ -13,7 +13,7 @@ use Lamb\Util\Bracket;
 use Lamb\Util\Key;
 use Lamb\Util\UUID;
 
-class Postman
+class Postman extends AbstractConverter
 {
     /**
      * @param string      $collection
@@ -56,11 +56,8 @@ class Postman
 
         $encoded = json_encode($collectionJson, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         if (!is_null($path)) {
-            if (!file_exists($path)) {
-                mkdir($path, 0777, true);
-            }
             $filename = $collection->getName() . '.postman_collection.json';
-            file_put_contents($path . '/' . $filename, $encoded);
+            self::save($path, $filename, $encoded);
         }
         return $encoded;
     }
@@ -107,7 +104,7 @@ class Postman
             }
             foreach ($environmentJsonList as $name => $content) {
                 $filename = $name . '.postman_environment.json';
-                file_put_contents($dir . '/' . $filename, $content);
+                self::save($dir, $filename, $content);
             }
         }
         return $environmentJsonList;

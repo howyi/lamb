@@ -13,7 +13,7 @@ use Lamb\Util\Bracket;
 use Lamb\Util\Key;
 use Symfony\Component\Yaml\Yaml;
 
-class Swagger
+class Swagger extends AbstractConverter
 {
     /**
      * @param string      $collection
@@ -64,11 +64,8 @@ class Swagger
 
         $encoded = Yaml::dump($documentArray, 50, 2);
         if (!is_null($path)) {
-            if (!file_exists($path)) {
-                mkdir($path, 0777, true);
-            }
             $filename = $collection->getName() . '.yaml';
-            file_put_contents($path . '/' . $filename, $encoded);
+            self::save($path, $filename, $encoded);
         }
         return $encoded;
     }
