@@ -59,7 +59,7 @@ abstract class AbstractBodyStructure
         }
 
         if (isset($array['enum'])) {
-            $json = current($array['enum']);
+            $json = reset($array['enum']);
             return;
         }
 
