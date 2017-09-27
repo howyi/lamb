@@ -40,7 +40,7 @@ class ApiBlueprint extends AbstractConverter
         $document = Bracket::APIBLUEPRINT($document);
 
         if (!is_null($path)) {
-            $filename = $collection->getName() . '.md';
+            $filename = $collection->getName() . '.apib';
             self::save($path, $filename, $document);
         }
         return $document;
